@@ -23,7 +23,7 @@ XShardsTSDataset can be initialized from xshards of pandas dataframe and be conv
     :undoc-members:
     :show-inheritance:
 
-Built-in dataset
+built-in dataset
 --------------------------------------------
 
 Built-in dataset can be downloaded and preprocessed by this function. Train, validation and test split is also supported.
