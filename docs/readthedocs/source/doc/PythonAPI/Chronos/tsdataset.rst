@@ -22,3 +22,10 @@ XShardsTSDataset can be initialized from xshards of pandas dataframe and be conv
     :members:
     :undoc-members:
     :show-inheritance:
+
+Built-in dataset
+--------------------------------------------
+
+Built-in dataset can be downloaded and preprocessed by this function. Train, validation and test split is also supported.
+.. automodule:: bigdl.chronos.data.repo_dataset
+    :members:
