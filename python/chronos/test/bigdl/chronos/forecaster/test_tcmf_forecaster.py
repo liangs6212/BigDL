@@ -272,7 +272,7 @@ class TestChronosModelTCMFForecaster(TestCase):
         from bigdl.orca import init_orca_context, stop_orca_context
 
         init_orca_context(cores=4, spark_log_level="INFO", init_ray_on_spark=True,
-                          object_store_memory="1g")
+                          object_store_memory="1g", include_webui=False)
         self.model.fit(input, num_workers=4, **self.fit_params)
 
         with tempfile.TemporaryDirectory() as tempdirname:

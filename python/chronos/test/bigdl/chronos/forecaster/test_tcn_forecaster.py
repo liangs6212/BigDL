@@ -170,7 +170,7 @@ class TestChronosModelTCNForecaster(TestCase):
     def test_tcn_forecaster_xshard_input(self):
         train_data, val_data, test_data = create_data()
         print("original", train_data[0].dtype)
-        init_orca_context(cores=4, memory="2g")
+        init_orca_context(cores=4, memory="2g", include_webui=False)
         from bigdl.orca.data import XShards
 
         def transform_to_dict(data):
@@ -197,7 +197,7 @@ class TestChronosModelTCNForecaster(TestCase):
     def test_tcn_forecaster_distributed(self):
         train_data, val_data, test_data = create_data()
 
-        init_orca_context(cores=4, memory="2g")
+        init_orca_context(cores=4, memory="2g", include_webui=False)
 
         forecaster = TCNForecaster(past_seq_len=24,
                                    future_seq_len=5,

@@ -27,14 +27,14 @@ if [ ! -f ~/.chronos/dataset/nyc_taxi/nyc_taxi.csv ]; then
   wget -nv $FTP_URI/analytics-zoo-data/apps/nyc-taxi/nyc_taxi.csv -P ~/.chronos/dataset/nyc_taxi/
 fi
 
-execute_ray_test autolstm_nyc_taxi "${BIGDL_ROOT}/python/chronos/example/auto_model/autolstm_nyc_taxi.py"
+execute_ray_test autolstm_nyc_taxi "${BIGDL_ROOT}/python/chronos/example/auto_model/autolstm_nyc_taxi.py --memory '4g'"
 time1=$?
 
 if [ ! -f {BIGDL_ROOT}/python/chronos/examples/auto_model/nyc_taxi.csv ]; then
   wget -nv $FTP_URI/analytics-zoo-data/apps/nyc-taxi/nyc_taxi.csv -P ${BIGDL_ROOT}/python/chronos/example/auto_model/
 fi
 
-execute_ray_test autoprophet_nyc_taxi "${BIGDL_ROOT}/python/chronos/example/auto_model/autoprophet_nyc_taxi.py --datadir ${BIGDL_ROOT}/python/chronos/example/auto_model/nyc_taxi.csv"
+execute_ray_test autoprophet_nyc_taxi "${BIGDL_ROOT}/python/chronos/example/auto_model/autoprophet_nyc_taxi.py --datadir ${BIGDL_ROOT}/python/chronos/example/auto_model/nyc_taxi.csv --memory '4g'"
 time2=$?
 
 if [ ! -f {BIGDL_ROOT}/python/chronos/examples/simulator/data_train_small.npz ]; then
@@ -49,7 +49,7 @@ if [ ! -f ~/.chronos/dataset/network_traffic/network_traffic_data.csv ]; then
   mv ~/.chronos/dataset/network_traffic/data.csv ~/.chronos/dataset/network_traffic/network_traffic_data.csv
 fi
 
-execute_ray_test distributed_training_network_traffic "${BIGDL_ROOT}/python/chronos/example/distributed/distributed_training_network_traffic.py"
+execute_ray_test distributed_training_network_traffic "${BIGDL_ROOT}/python/chronos/example/distributed/distributed_training_network_traffic.py --memory '4g'"
 time4=$?
 
 if [ ! -f ~/.chronos/dataset/nyc_taxi/nyc_taxi_data.csv ]; then
@@ -60,7 +60,7 @@ fi
 # When the thread of onnxruntime is None, "pthread_setaffinity_np failed" may appear.
 sed -i '/onnx/d' ${BIGDL_ROOT}/python/chronos/example/onnx/onnx_autotsestimator_nyc_taxi.py
 
-execute_ray_test onnx_autotsestimator_nyc_taxi "${BIGDL_ROOT}/python/chronos/example/onnx/onnx_autotsestimator_nyc_taxi.py"
+execute_ray_test onnx_autotsestimator_nyc_taxi "${BIGDL_ROOT}/python/chronos/example/onnx/onnx_autotsestimator_nyc_taxi.py --memory '4g'"
 time5=$?
 
 if [ ! -f ~/.chronos/dataset/network_traffic/network_traffic_data.csv ]; then

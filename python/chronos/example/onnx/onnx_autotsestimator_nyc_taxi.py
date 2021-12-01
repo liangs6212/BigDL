@@ -56,7 +56,8 @@ if __name__ == '__main__':
     # init_orca_context
     num_nodes = 1 if args.cluster_mode == "local" else args.num_workers
     init_orca_context(cluster_mode=args.cluster_mode, cores=args.cores,
-                      memory=args.memory, num_nodes=num_nodes, init_ray_on_spark=True)
+                      memory=args.memory, num_nodes=num_nodes, init_ray_on_spark=True,
+                      include_webui=False)
     tsdata_train, tsdata_val, tsdata_test = get_tsdata()
 
     autoest = AutoTSEstimator(model='lstm',

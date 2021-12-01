@@ -72,7 +72,8 @@ if __name__ == '__main__':
     # use autoprophet for HPO
     num_nodes = 1 if args.cluster_mode == "local" else args.num_workers
     init_orca_context(cluster_mode=args.cluster_mode, cores=args.cores,
-                      memory=args.memory, num_nodes=num_nodes, init_ray_on_spark=True)
+                      memory=args.memory, num_nodes=num_nodes, init_ray_on_spark=True,
+                      include_webui=False)
     autoprophet = AutoProphet(cpus_per_trial=args.cpus_per_trial)
     start_time = time.time()
     autoprophet.fit(df_train, cross_validation=True, n_sampling=args.n_sampling)

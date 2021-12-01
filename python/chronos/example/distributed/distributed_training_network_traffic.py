@@ -60,7 +60,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     num_nodes = 1 if args.cluster_mode == 'local' else args.num_workers
     init_orca_context(cluster_mode=args.cluster_mode, cores=args.cores,
-                      memory=args.memory, num_nodes=num_nodes)
+                      memory=args.memory, num_nodes=num_nodes,
+                      include_webui=False)
 
     tsdata_train, tsdata_test = get_tsdata()
     x_train, y_train = tsdata_train.to_numpy()

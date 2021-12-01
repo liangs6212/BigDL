@@ -72,7 +72,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     num_nodes = 1 if args.cluster_mode == "local" else args.num_workers
     init_orca_context(cluster_mode=args.cluster_mode, cores=args.cores, num_nodes=num_nodes,
-                      memory=args.memory, init_ray_on_spark=True)
+                      memory=args.memory, init_ray_on_spark=True, include_webui=False)
 
     if not args.use_dummy_data:
         assert args.data_dir is not None, "--data_dir must be provided if not using dummy data"

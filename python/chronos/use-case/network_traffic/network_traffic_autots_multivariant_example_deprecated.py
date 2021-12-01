@@ -65,7 +65,7 @@ df.ffill(inplace=True)
 df.index.name = "datetime"
 df = df.reset_index()
 
-init_orca_context(cores=4, memory="4g", init_ray_on_spark=True)
+init_orca_context(cores=4, memory="4g", init_ray_on_spark=True, include_webui=False)
 
 from bigdl.chronos.autots.deprecated.forecast import AutoTSTrainer
 from bigdl.chronos.autots.deprecated.config.recipe import *

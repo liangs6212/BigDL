@@ -80,7 +80,7 @@ def get_auto_estimator():
 class TestAutoLSTM(TestCase):
     def setUp(self) -> None:
         from bigdl.orca import init_orca_context
-        init_orca_context(cores=8, init_ray_on_spark=True)
+        init_orca_context(cores=8, init_ray_on_spark=True, include_webui=False)
 
     def tearDown(self) -> None:
         from bigdl.orca import stop_orca_context

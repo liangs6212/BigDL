@@ -22,7 +22,7 @@ execute_ray_test(){
     return $((now-start))
 }
 
-execute_ray_test tcmf_elctricity "${BIGDL_ROOT}/python/chronos/example/tcmf/run_electricity.py --use_dummy_data --smoke"
+execute_ray_test tcmf_elctricity "${BIGDL_ROOT}/python/chronos/example/tcmf/run_electricity.py --use_dummy_data --smoke --memory '4g'"
 time1=$?
 
 echo "#1 chronos tcmf example time used:$time1 seconds"
