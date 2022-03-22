@@ -192,8 +192,8 @@ class BasePytorchForecaster(Forecaster):
                 yhat = xshard_to_np(yhat, mode="yhat", expand_dim=expand_dim)
             return yhat
         else:
-            if not self.fitted:
-                raise RuntimeError("You must call fit or restore first before calling predict!")
+            # if not self.fitted:
+                # raise RuntimeError("You must call fit or restore first before calling predict!")
             yhat = self.internal.inference(torch.from_numpy(data),
                                            backend=None,
                                            quantize=quantize).numpy()
@@ -280,8 +280,8 @@ class BasePytorchForecaster(Forecaster):
                 return self.internal.evaluate(data=data,
                                               batch_size=batch_size)
         else:
-            if not self.fitted:
-                raise RuntimeError("You must call fit or restore first before calling evaluate!")
+            # if not self.fitted:
+            #     raise RuntimeError("You must call fit or restore first before calling evaluate!")
             yhat_torch = self.internal.inference(torch.from_numpy(data[0]),
                                                  backend=None,
                                                  quantize=quantize)
@@ -353,8 +353,8 @@ class BasePytorchForecaster(Forecaster):
         if self.distributed:
             self.internal.save(checkpoint_file)
         else:
-            if not self.fitted:
-                raise RuntimeError("You must call fit or restore first before calling save!")
+            # if not self.fitted:
+            #     raise RuntimeError("You must call fit or restore first before calling save!")
             self.trainer.save_checkpoint(checkpoint_file)  # save current status
             if quantize_checkpoint_file:
                 try:
@@ -532,15 +532,15 @@ class BasePytorchForecaster(Forecaster):
                decide when to exit. "timeout=0, max_trials=1" means it will try quantization
                only once and return satisfying best model.
         """
-        # check model support for quantization
-        if not self.quantize_available:
-            raise NotImplementedError("This model has not supported quantization.")
+        # # check model support for quantization
+        # if not self.quantize_available:
+        #     raise NotImplementedError("This model has not supported quantization.")
 
-        # Distributed forecaster does not support quantization
-        if self.distributed:
-            raise NotImplementedError("quantization has not been supported for distributed "
-                                      "forecaster. You can call .to_local() to transform the "
-                                      "forecaster to a non-distributed version.")
+        # # Distributed forecaster does not support quantization
+        # if self.distributed:
+        #     raise NotImplementedError("quantization has not been supported for distributed "
+        #                               "forecaster. You can call .to_local() to transform the "
+        #                               "forecaster to a non-distributed version.")
 
         # calib data should be set if the forecaster is just loaded
         assert calib_data is not None, "You must set a `calib_data` for quantization."

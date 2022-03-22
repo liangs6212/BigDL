@@ -22,10 +22,53 @@ class Forecaster(metaclass=ABCMeta):
     def fit(self, **kwargs):
         pass
 
+    @property
     @abstractmethod
     def evaluate(self, **kwargs):
         pass
 
+    @evaluate.getter
+    @abstractmethod
+    def evaluate(self, **kwargs):
+        if not self.distributed and not self.fitted:
+            raise RuntimeError("You must call fit or restore first before calling predict!")
+
+    @property
     @abstractmethod
     def predict(self, **kwargs):
         pass
+
+    @predict.getter
+    @abstractmethod
+    def predict(self, **kwargs):
+        if not self.distributed and not self.fitted:
+            raise RuntimeError("You must call fit or restore first before calling predict!")
+
+    @property
+    @abstractmethod
+    def save(self, **kwargs):
+        pass
+
+    @save.getter
+    @abstractmethod
+    def save(self, **kwargs):
+        if not self.distributed and not self.fitted:
+            raise RuntimeError("You must call fit or restore first before calling predict!")
+
+    @property
+    @abstractmethod
+    def quantize(self, **kwargs):
+        pass
+
+    @quantize.getter
+    @abstractmethod
+    def quantize(self, **kwargs):
+        # check model support for quantization
+        if not self.quantize_available:
+            raise NotImplementedError("This model has not supported quantization.")
+
+        # Distributed forecaster does not support quantization
+        if self.distributed:
+            raise NotImplementedError("quantization has not been supported for distributed "
+                                      "forecaster. You can call .to_local() to transform the "
+                                      "forecaster to a non-distributed version.")
