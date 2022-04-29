@@ -55,7 +55,7 @@ class BaseTF2Forecaster(Forecaster):
             self.internal.fit(x=data, epochs=epochs)
         self.fitted = True
 
-    def predict(self, data, batch_size=32):
+    def predict(self, data, batch_size=32, training=False):
         """
         :params data: The data support following formats:
 
@@ -65,13 +65,14 @@ class BaseTF2Forecaster(Forecaster):
 
         :params batch_size: predict batch size. The value will not affect evaluate
                 result but will affect resources cost(e.g. memory and time).
+        :params training: 
         """
         if not self.fitted:
             raise RuntimeError("You must call fit or restore first before calling predict!")
-        yhat = self.internal.predict(data, batch_size=batch_size)
-        return yhat
+        yhat = self.internal(data)
+        return yhat.numpy()
 
-    def evaluate(self, data, batch_size=32, multioutput="raw_values"):
+    def evaluate(self, data, batch_size=32, multioutput="raw_values", training=False):
         """
         Please note that evaluate result is calculated by scaled y and yhat. If you scaled
         your data (e.g. use .scale() on the TSDataset) please follow the following code
@@ -100,10 +101,10 @@ class BaseTF2Forecaster(Forecaster):
         """
         if not self.fitted:
             raise RuntimeError("You must call fit or restore first before calling evaluate!")
-        yhat = self.internal.predict(data[0], batch_size=batch_size)
+        yhat = self.internal(data[0], training=training)
 
         aggregate = 'mean' if multioutput == 'uniform_average' else None
-        return Evaluator.evaluate(self.metrics, y_true=data[1], y_pred=yhat, aggregate=aggregate)
+        return Evaluator.evaluate(self.metrics, y_true=data[1], y_pred=yhat.numpy(), aggregate=aggregate)
 
     def save(self, checkpoint_file):
         """
