@@ -44,6 +44,8 @@ html_theme_options = {
     "use_edit_page_button": True,
     "path_to_docs": "doc/source",
     "home_page_in_toc": True,
+    "rightsidebar": "true",
+    "relbarbgcolor": "black"
 }
 
 # The suffix of source filenames.
@@ -136,6 +138,10 @@ exclude_patterns = ['_build']
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_css_files = [
+    'css/custom.css',
+]
 
 # Custom sidebar templates, must be a dictionary that maps document namesan
 # to template names.
