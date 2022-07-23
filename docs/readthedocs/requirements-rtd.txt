@@ -11,3 +11,4 @@ markdown<3.4
 sphinx-book-theme
 sphinx_rtd_theme
 sphinx_markdown_tables
+ipython
