@@ -180,3 +180,10 @@ For the detailed algorithm description, please refer to `here <https://github.co
     :undoc-members:
     :show-inheritance:
     :inherited-members:
+
+
+.. sourcecode:: ipython
+    from bigdl.chronos.data import TSDataset
+    import numpy as np
+    res = np.random.randn(1000, 2)
+    
