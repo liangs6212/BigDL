@@ -33,9 +33,9 @@ sys.path.insert(0, os.path.abspath("../../../python/nano/src/"))
 
 
 # -- Project information -----------------------------------------------------
-import sphinx_rtd_theme
-html_theme = "sphinx_rtd_theme"
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+import sphinx_book_theme
+html_theme = "sphinx_book_theme"
+# html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #html_theme = "sphinx_book_theme"
 html_theme_options = {
     "repository_url": "https://github.com/intel-analytics/BigDL",
@@ -45,7 +45,10 @@ html_theme_options = {
     "path_to_docs": "doc/source",
     "home_page_in_toc": True,
     "rightsidebar": "true",
-    "relbarbgcolor": "black"
+    "relbarbgcolor": "black",
+    "show_navbar_depth": 1,
+    "toc_title": "try adding a sidebar",
+    "show_toc_level": 1
 }
 
 # The suffix of source filenames.
@@ -91,9 +94,7 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'recommonmark',
     'sphinx_markdown_tables',
-    'sphinx_tabs.tabs',
-    'IPython.sphinxext.ipython_directive',
-    'IPython.sphinxext.ipython_console_highlighting'
+    'sphinx_tabs.tabs'
 ]
 
 
@@ -138,11 +139,14 @@ exclude_patterns = ['_build']
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = ["custom.css"]
 
-html_css_files = [
-    'css/custom.css',
-]
+html_logo = "../image/bigdl_logo.jpg"
+html_title = "BigDL very nice"
 
+html_sidebars = {
+    "**": 'sbt-sidebar-nav.html'
+}
 # Custom sidebar templates, must be a dictionary that maps document namesan
 # to template names.
 #
@@ -151,8 +155,6 @@ html_css_files = [
 # default: ``['localtoc.html', 'relations.html', 'sourcelink.html',
 # 'searchbox.html']``.
 #
-# html_sidebars = {}
-
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
