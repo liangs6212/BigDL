@@ -40,7 +40,8 @@ import pickle
 import numpy as np
 import time
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import *
+from tensorflow.keras.layers import Wrapper, RNN, InputSpec, Input, Reshape, Add,\
+    Dense, multiply, concatenate, Lambda, Dropout, Conv2D, Permute, GRUCell, Softmax
 from tensorflow.keras.initializers import TruncatedNormal, Constant
 import tensorflow.keras.backend as K
 
