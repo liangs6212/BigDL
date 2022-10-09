@@ -824,6 +824,7 @@ class TSDataset:
 
         :param batch_size: Number of samples per batch of computation.
                If unspecified, batch_size will default to 32.
+        :param shuffle: Randomly shuffles the elements of this tsdataset.
 
         :return: a tf.data dataset, including x and y.
         """
