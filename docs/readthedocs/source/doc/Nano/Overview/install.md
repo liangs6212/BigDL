@@ -13,7 +13,7 @@ You can select bigdl-nano along with some dependencies specific to PyTorch or Te
     <link rel="stylesheet" type="text/css" href="../../../_static/css/nano_installation_guide.css" />
 
     <div class="displayed">
-      <table id="table-1">
+      <table id="table-1" width="100%">
         <tbody>
           <tr>
             <td colspan="1">FrameWork</td>

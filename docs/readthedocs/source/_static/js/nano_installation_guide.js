@@ -29,7 +29,7 @@ function refresh_cmd(){
     }
     else if(framework=="tensorflow"){
         $("#version").append("<td colspan='1'>Tensorflow Version</td>\
-        <td colspan='2' width='100%'><button id='tf2_270'>2.7</button></td>");
+        <td colspan='4'><button id='tf2_270'>2.7</button></td>");
     }
     reset_color(versions);
     set_color(version);
