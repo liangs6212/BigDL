@@ -152,9 +152,9 @@ $(document).on('click',"button",function(){
     refresh_cmd();
 
     if (framework=="tensorflow"){
-        document.getElementById("cmd").style.whiteSpace("nowrap");
+        document.getElementById("cmd").style.whiteSpace = "nowrap";
     }else{
-        document.getElementById("cmd").style.whiteSpace("normal");
+        document.getElementById("cmd").style.whiteSpace = "normal";
     }
 })
 
