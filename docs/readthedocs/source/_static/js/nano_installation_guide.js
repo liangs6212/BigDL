@@ -43,8 +43,13 @@ function refresh_cmd(){
         enable(inferences);
     }
 
+    if (framework=="tensorflow"){
+        document.getElementById("cmd").style.whiteSpace("nowrap");
+    }else{
+        document.getElementById("cmd").style.whiteSpace("normal");
+    }
+
         if(framework=="pytorch"){
-            document.getElementById("cmd").style.whiteSpace("normal");
             if(release=="stable"){
                 cmd="pip install bigdl-nano[pytorch]==2.1.0";
             }else if(release=="nightly"){
