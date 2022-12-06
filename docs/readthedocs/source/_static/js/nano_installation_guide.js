@@ -43,12 +43,6 @@ function refresh_cmd(){
         enable(inferences);
     }
 
-    if (framework=="tensorflow"){
-        document.getElementById("cmd").style.whiteSpace("nowrap");
-    }else{
-        document.getElementById("cmd").style.whiteSpace("normal");
-    }
-
         if(framework=="pytorch"){
             if(release=="stable"){
                 cmd="pip install bigdl-nano[pytorch]==2.1.0";
@@ -156,6 +150,12 @@ $(document).on('click',"button",function(){
     }
 
     refresh_cmd();
+
+    if (framework=="tensorflow"){
+        document.getElementById("cmd").style.whiteSpace("nowrap");
+    }else{
+        document.getElementById("cmd").style.whiteSpace("normal");
+    }
 })
 
 //func to add button hover effect
