@@ -42,11 +42,6 @@ function refresh_cmd(){
         enable(versions);
         enable(inferences);
     }
-    if (version=="pytorch_113"){
-        document.getElementById("cmd").style.whiteSpace = "normal";
-    }else{
-        document.getElementById("cmd").style.whiteSpace = "nowrap";
-    }
 
         if(framework=="pytorch"){
             if(release=="stable"){
