@@ -137,7 +137,6 @@ $(document).on('click',"button",function(){
             document.getElementById("cmd").style.whiteSpace = "nowrap";
         }else{
             version="pytorch_112";
-            document.getElementById("cmd").style.whiteSpace = "normal";
         }
     }
     else if (releases.indexOf(id)>=0){
