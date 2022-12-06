@@ -40,7 +40,7 @@ You can select bigdl-nano along with some dependencies specific to PyTorch or Te
           </tr>
           <tr class="tallet_tr">
             <td colspan="1">Install CMD</td>
-            <td colspan="4" id="cmd">NA</td>
+            <td colspan="8" id="cmd">NA</td>
           </tr>
         </tbody>
       </table>
