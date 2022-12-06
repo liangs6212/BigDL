@@ -135,8 +135,10 @@ $(document).on('click',"button",function(){
         framework=id;
         if (framework=="tensorflow"){
             version="tf2_270";
+            document.getElementById("cmd").style.whiteSpace = "nowrap";
         }else{
             version="pytorch_112";
+            document.getElementById("cmd").style.whiteSpace = "normal";
         }
     }
     else if (releases.indexOf(id)>=0){
@@ -149,13 +151,7 @@ $(document).on('click',"button",function(){
         version=id;
     }
 
-    refresh_cmd();
-
-    if (framework=="tensorflow"){
-        document.getElementById("cmd").style.whiteSpace = "nowrap";
-    }else{
-        document.getElementById("cmd").style.whiteSpace = "normal";
-    }
+    refresh_cmd();    
 })
 
 //func to add button hover effect
