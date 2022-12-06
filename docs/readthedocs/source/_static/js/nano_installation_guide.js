@@ -44,6 +44,7 @@ function refresh_cmd(){
     }
 
         if(framework=="pytorch"){
+            document.getElementById("cmd").style.whiteSpace("normal");
             if(release=="stable"){
                 cmd="pip install bigdl-nano[pytorch]==2.1.0";
             }else if(release=="nightly"){
@@ -70,6 +71,7 @@ function refresh_cmd(){
                 }
             }
         }else if(framework="tensorflow"){
+            document.getElementById("cmd").style.whiteSpace("nowrap");
             if(inference=="inferenceyes"){
                 if (version=="tf2_270"){
                     if (release=="nightly"){
