@@ -59,6 +59,7 @@ jobs:
           pip install -i https://pypi.python.org/simple python/dllib/src/dist/bigdl_dllib-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/orca/src/dist/bigdl_orca-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/chronos/src/dist/bigdl_chronos-*-py3-none-manylinux1_x86_64.whl
+          pip install SQLAlchemy==1.4.27
           export SPARK_LOCAL_HOSTNAME=localhost
           export KERAS_BACKEND=tensorflow
           bash python/chronos/dev/test/run-pytests.sh 1
@@ -105,6 +106,7 @@ jobs:
           pip install -i https://pypi.python.org/simple python/dllib/src/dist/bigdl_dllib-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/orca/src/dist/bigdl_orca-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/chronos/src/dist/bigdl_chronos-*-py3-none-manylinux1_x86_64.whl
+          pip install SQLAlchemy==1.4.27
           export SPARK_LOCAL_HOSTNAME=localhost
           export KERAS_BACKEND=tensorflow
           bash python/chronos/dev/test/run-pytests.sh 2
@@ -151,6 +153,7 @@ jobs:
           pip install -i https://pypi.python.org/simple python/dllib/src/dist/bigdl_dllib-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/orca/src/dist/bigdl_orca-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/chronos/src/dist/bigdl_chronos-*-py3-none-manylinux1_x86_64.whl
+          pip install SQLAlchemy==1.4.27
           export SPARK_LOCAL_HOSTNAME=localhost
           export KERAS_BACKEND=tensorflow
           bash python/chronos/dev/test/run-pytests.sh 3
@@ -197,6 +200,7 @@ jobs:
           pip install -i https://pypi.python.org/simple python/dllib/src/dist/bigdl_dllib-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/orca/src/dist/bigdl_orca-*-py3-none-manylinux1_x86_64.whl
           pip install -i https://pypi.python.org/simple python/chronos/src/dist/bigdl_chronos-*-py3-none-manylinux1_x86_64.whl
+          pip install SQLAlchemy==1.4.27
           export SPARK_LOCAL_HOSTNAME=localhost
           export KERAS_BACKEND=tensorflow
           bash python/chronos/dev/test/run-pytests.sh 4
