@@ -94,6 +94,12 @@ def generate_dt_features(input_df, dt_col, features, one_hot_features, freq, fea
     df = input_df.copy()
     field = df[dt_col]
 
+    # spark3.x cannot automatically switch the time type.
+    # related issue: https://github.com/intel-analytics/BigDL/issues/7246
+    if not pd.api.types.is_datetime64_any_dtype(field) and \
+            not pd.api.types.is_timedelta64_dtype(field):
+        field = pd.to_datetime(field, errors="ignore")
+
     # built in time features
     for attr in TIME_FEATURE:
         if attr not in features_onehot and attr not in features_normal:
